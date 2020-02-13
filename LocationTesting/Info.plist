@@ -33,8 +33,10 @@
 	<key>NSSupportsSuddenTermination</key>
 	<true/>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>need le location</string>
+	<string>We need your location to do very important stuff...</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>need location gimme pls</string>
+	<string>We need your location to do very important stuff...</string>
+	<key>NSLocationUsageDescription</key>
+	<string>We need your location to do very important stuff...</string>
 </dict>
 </plist>
