@@ -39,8 +39,8 @@ class ViewController: NSViewController, CLLocationManagerDelegate {
             locationManager.requestAlwaysAuthorization()
         } else {
             let alert = NSAlert.init()
- 			alert.messageText = "You need to enable location services for this application to work correctly."
-            alert.informativeText = "Information text"
+            alert.messageText = "You need to enable location services for this application to work correctly."
+            alert.informativeText = "You can do this from the settings app"
             alert.addButton(withTitle: "OK")
             alert.addButton(withTitle: "Cancel")
             alert.runModal()
@@ -52,29 +52,30 @@ class ViewController: NSViewController, CLLocationManagerDelegate {
             print("Authorization OK")
             
             if let userLocation = locationManager.location {
-                 latitudeLabel.stringValue = userLocation.coordinate.latitude.description
-                 longitudeLabel.stringValue = userLocation.coordinate.longitude.description
-                 altitudeLabel.stringValue = userLocation.altitude.description
-                 horizontalAccuracyLabel.stringValue = userLocation.horizontalAccuracy.description
-                 verticalAccuracyLabel.stringValue = userLocation.horizontalAccuracy.description
-                 timeStamp.stringValue = userLocation.timestamp.description
-                 
-                 // Add an annitation to the map view
-                 let annotation = MKPointAnnotation()
-                 let annotationCoordinate = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude - 0.006, longitude: userLocation.coordinate.longitude - 0.012)
-                 annotation.coordinate = annotationCoordinate
-                 annotation.title = "Hello World!"
-                 annotation.subtitle = "An interesting location..."
-                 mapView.addAnnotation(annotation)
-                 
-                 let zoomLevel = 0.015 /// Lower values zoom in, higher values zoom out
-                 
-                 let center = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
-                 let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: zoomLevel, longitudeDelta: zoomLevel))
-                 mapView.setRegion(region, animated: true)
-                 
-                 mapView.showsUserLocation = true
-             }
+                
+                latitudeLabel.stringValue = userLocation.coordinate.latitude.description
+                longitudeLabel.stringValue = userLocation.coordinate.longitude.description
+                altitudeLabel.stringValue = userLocation.altitude.description
+                horizontalAccuracyLabel.stringValue = userLocation.horizontalAccuracy.description
+                verticalAccuracyLabel.stringValue = userLocation.horizontalAccuracy.description
+                timeStamp.stringValue = userLocation.timestamp.description
+                
+                // Add an annitation to the map view
+                let annotation = MKPointAnnotation()
+                let annotationCoordinate = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude - 0.006, longitude: userLocation.coordinate.longitude - 0.012)
+                annotation.coordinate = annotationCoordinate
+                annotation.title = "Hello World!"
+                annotation.subtitle = "An interesting location..."
+                mapView.addAnnotation(annotation)
+                
+                let zoomLevel = 0.015 /// Lower values zoom in, higher values zoom out
+                
+                let center = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
+                let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: zoomLevel, longitudeDelta: zoomLevel))
+                mapView.setRegion(region, animated: true)
+                
+                mapView.showsUserLocation = true
+            }
         } else {
             print("Authorization not granted")
         }
