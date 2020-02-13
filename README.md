@@ -6,3 +6,5 @@ A project that demonstrates how to use CoreLocation API to get location informat
 
 #### Can I use it?
 Yes, go ahead! Just clone it and start hacking!
+
+![Application Screenshot](https://github.com/ademsalih/cllocationtesting/blob/master/screenshot.png?raw=true)
